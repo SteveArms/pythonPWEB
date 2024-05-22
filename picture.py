@@ -87,7 +87,6 @@ class Picture:
     """Devuelve una figura rotada en 90 grados, puede ser en sentido horario
     o antihorario"""
     nuevo = []
-    largo = len(self.img[0])
     for i in range(len(self.img[0]) - 1, -1 ,-1):
       cadenaNueva = ""
       for x in range(len(self.img)):
