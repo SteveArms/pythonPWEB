@@ -32,7 +32,7 @@ class Picture:
     nuevo = []
     for i in range(len(self.img)):
       nuevo.append(self.img[i] + p.img[i])
-    return nuevo.img
+    return nuevo
 
   def up(self, p):
     return Picture(None)
