@@ -8,9 +8,11 @@ class Picture:
 
   def _invColor(self, color):
     if color not in inverter:
+      print(color);
       return color
+    print(color);
     return inverter[color]
-
+  
   def verticalMirror(self):
     """ Devuelve el espejo vertical de la imagen """
     vertical = []
@@ -27,9 +29,10 @@ class Picture:
     return Picture(None)
 
   def join(self, p):
-    """ Devuelve una nueva figura poniendo la figura del argumento 
-        al lado derecho de la figura actual """
-    return Picture(None)
+    nuevo = []
+    for i in range(len(self.img)):
+      nuevo.append(self.img[i] + p.img[i])
+    return nuevo.img
 
   def up(self, p):
     return Picture(None)
