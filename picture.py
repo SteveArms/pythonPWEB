@@ -43,11 +43,10 @@ class Picture:
 
   def up(self, p):
     nuevo = []
-    for i in range(len(self.img) + len(p.img)):
-      if i < 58:
-        nuevo.append(p.img[i])
-      else:
-        nuevo.append(self.img[i % 58])
+    for i in range(len(p.img)):
+      nuevo.append(p.img[i])
+    for x in range(len(self.img)):
+      nuevo.append(self.img[x])
     return Picture(nuevo)
 
   def under(self, p):
