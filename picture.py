@@ -35,7 +35,13 @@ class Picture:
     return nuevo
 
   def up(self, p):
-    return Picture(None)
+    nuevo = []
+    for i in range(len(self.img) + len(p.img)):
+      if i < 58:
+        nuevo.append(p.img[i])
+      else:
+        nuevo.append(self.img[i % 58])
+    return nuevo
 
   def under(self, p):
     """ Devuelve una nueva figura poniendo la figura p sobre la
