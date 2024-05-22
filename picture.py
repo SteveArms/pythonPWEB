@@ -7,10 +7,8 @@ class Picture:
     return self.img == other.img
 
   def _invColor(self, color):
-    if color not in inverter:
-      print(color);
+    if color not in inverter:      
       return color
-    print(color);
     return inverter[color]
   
   def verticalMirror(self):
@@ -28,8 +26,14 @@ class Picture:
     return nuevo
 
   def negative(self):
-    """ Devuelve un negativo de la imagen """
-    return Picture(None)
+    nuevo = []
+    for i in range(len(self.img)):
+      cadenaFinal = ""
+      cadena = self.img[i]
+      for x in range(len(cadena)):
+        cadenaFinal += self._invColor(cadena[x])
+      nuevo.append(cadenaFinal) 
+    return Picture(nuevo)
 
   def join(self, p):
     nuevo = []
