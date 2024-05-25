@@ -1,0 +1,262 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[left=25mm, right=25mm, top=35mm, bottom=30mm, headheight=35mm]{geometry}
+\usepackage{graphicx}
+%opening
+\title{Laboratorio 4 - AJAX}
+\author{Armando Steven Cuno Cahuari}
+\newcommand{\integrante}{\fontsize{13}{14}\selectfont Cuno Cahuari Armando Steven}
+\newcommand{\curso}{ \fontsize{13}{14}\selectfont Programacion Web 2}
+\newcommand{\tema}{\fontsize{13}{14}\selectfont Laboratorio 5 - Python}
+\newcommand{\repositorio}{\fontsize{13}{14}\selectfont https://github.com/SteveArms/pythonPWEB.git}
+\newcommand{\profesor}{Carlo Jose Luis Corrales Delgado}
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	\textbf{\fontsize{20}{19}\selectfont Universidad Nacional San Agustin de Arequipa} \\
+	\vspace{1em}
+	\textbf{\fontsize{15}{16}\selectfont Facultad de Ingenieria de Produccion y Servicios} \\ 
+	\vspace{1em}
+	\textbf{\fontsize{15}{16}\selectfont Escuela Profesional de Ingenieria de Sistemas} \\
+	\vspace{1cm}
+	\includegraphics[height=4.5cm]{logoSistemas.jpeg} \\
+	\vspace{1cm}
+	\textbf{\fontsize{13}{14}\selectfont Curso: } \\ \vspace{1em}
+	\curso \\ \vspace{1em}
+	\textbf{\fontsize{13}{14}\selectfont Profesor:} \\ \vspace{1em}
+	\profesor \\ \vspace{1em}
+	\textbf{\fontsize{13}{14}\selectfont Tema: } \\ \vspace{1em}
+	\tema \\ \vspace{1em}
+	\textbf{\fontsize{13}{14}\selectfont Integrante: } \\ \vspace{1em}
+	\integrante \\ \vspace{1em}
+	\textbf{\fontsize{13}{14}\selectfont Repositorio:} \\ \vspace{1em}
+	\repositorio \\ \vspace{5em}
+	\textbf{\fontsize{20}{14}\selectfont 2024} \\ \vspace{5em}
+\end{titlepage}
+\section*{\centering Informe Nro 5 - Python}
+	\begin{flushleft}
+		La actividad consiste en utilizar un objeto llamado Picture, que proporciona diversos métodos de clase necesarios para crear diferentes formas de las imágenes solicitadas. Primero, es necesario implementar estos métodos en la clase Picture. Luego, se deben desarrollar los códigos necesarios para utilizar adecuadamente estos métodos en las imágenes solicitadas.
+	\end{flushleft}
+\subsection*{Metodos Picture - Python}
+	\subparagraph*{Metodo verticalMirror}
+		\begin{flushleft}
+			El método `verticalMirror` creará un reflejo vertical de una imagen, similar a un espejo. Para lograr esto, utilizaremos una nueva lista vacía donde copiaremos los datos del original al nuevo mediante una iteración que recorre las cadenas que conforman la figura. Cada fila se agregará en sentido inverso utilizando `value[::-1]`. Una vez finalizada la iteración, retornaremos esta nueva lista convertida en un objeto `Picture`, permitiendo así el uso de los métodos de clase proporcionados.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen1.jpeg}
+			\caption{Metodo verticalMirror}
+		\end{figure}
+	\subparagraph*{Metodo horizontalMirror}
+		\begin{flushleft}
+			El método `horizontalMirror` creará un reflejo horizontal de la imagen, simulando un espejo a lo largo de una línea horizontal. Utilizaremos una nueva lista que contendrá las cadenas invertidas. Para ello, recorreremos las filas de la imagen de manera descendente utilizando `range`, accediendo a los últimos elementos primero y agregándolos a la nueva lista en orden inverso. Una vez completada la iteración, devolveremos esta nueva lista como un objeto `Picture`, permitiendo así el uso de los métodos de clase proporcionados.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen2.jpeg}
+			\caption{Metodo horizontalMirror}
+		\end{figure}
+	\subparagraph*{Metodo negative}
+		\begin{flushleft}
+			El método `negative` cambiará los colores de la figura a sus opuestos. Para ello, utilizaremos el método `invColor`, que ya está implementado y recibe caracteres, devolviendo su color opuesto utilizando un diccionario. \\
+			El método `negative` creará una nueva lista con los cambios aplicados mediante una doble iteración: una para recorrer las filas y otra para recorrer los caracteres dentro de cada fila. Durante la segunda iteración, los caracteres de la cadena se pasarán por el método `invColor`, y una nueva variable `cadenaFinal` irá acumulando estos caracteres invertidos. Al finalizar la segunda iteración, `cadenaFinal` se agregará a la lista. Finalmente, se devolverá esta lista nueva convertida en un objeto `Picture`.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=4cm]{imagen3.jpeg}
+			\caption{Metodo negative}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=2cm]{imagen4.jpeg}
+			\caption{Metodo auxiliar invColor}
+		\end{figure}
+	\subparagraph*{Metodo join}
+		\begin{flushleft}
+			El método `join` colocará un objeto a la derecha del objeto actual. Para lograr esto, utilizaremos una lista que se construirá mediante una iteración según el tamaño de los objetos. Durante la iteración, combinaremos los valores de las filas del objeto actual con las filas del objeto que se va a añadir. Una vez realizada esta combinación, se agregará a la lista. Finalmente, se retornará esta nueva lista convertida en `Picture`.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen5.jpeg}
+			\caption{Metodo join}
+		\end{figure}
+		\vspace*{4cm}
+	\subparagraph*{Metodo up}
+		\begin{flushleft}
+			El método `join` colocará un objeto encima del objeto actual. Para lograr esto, primero realizaremos una iteración sobre las filas del objeto que se va a colocar encima, agregándolas a una nueva lista. Luego, en una segunda iteración, agregaremos las filas del objeto actual a esta nueva lista. Finalmente, retornaremos esta lista convertida en un objeto `Picture`.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen6.jpeg}
+			\caption{Metodo up}
+		\end{figure}
+	\subparagraph*{Metodo under}
+		\begin{flushleft}
+			El método `under` colocará un objeto sobre el objeto actual. Para lograr esto, utilizaremos una doble iteración: una que recorra las filas del objeto que se va a colocar encima y otra que recorra los caracteres de cada fila. \\			
+			Durante la iteración, crearemos una nueva variable `cadenaFinal` para almacenar los nuevos datos. Si el carácter en la posición del objeto a colocar es vacío, agregaremos el carácter correspondiente del objeto actual; de lo contrario, agregaremos el carácter del objeto a colocar encima. \\
+			Al finalizar la segunda iteración, `cadenaFinal` se agregará a una nueva lista. Finalmente, retornaremos esta lista convertida en un objeto `Picture`.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=6cm]{imagen7.jpeg}
+			\caption{Metodo under}
+		\end{figure}
+		\vspace*{4cm}
+	\subparagraph*{Metodo horizontalRepeat}
+		\begin{flushleft}
+			El método `horizontalRepeat` repetirá un objeto hacia la derecha un número específico de veces, el cual se pasará como argumento. Para lograr esto, utilizaremos una doble iteración: la primera recorrerá las filas y la segunda se encargará de repetir cada fila el número de veces especificado. \\
+			Durante la segunda iteración, utilizaremos una lista vacía y una variable auxiliar para agregar repetidamente el contenido de la fila. Una vez que se haya repetido el contenido de la fila el número de veces deseado, lo agregaremos a la lista. \\
+			Finalmente, retornaremos la lista convertida en un objeto `Picture`.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=4cm]{imagen8.jpeg}
+			\caption{Metodo horizontalRepeat}
+		\end{figure}
+	\subparagraph*{Metodo verticalRepeat}
+		\begin{flushleft}
+			El método `verticalRepeat` repetirá un objeto hacia arriba un número específico de veces, el cual se pasará como argumento. Utilizaremos una doble iteración: la primera iteración repetirá la acción el número de veces especificado y la segunda iteración recorrerá las filas del objeto. \\		
+			Durante la segunda iteración, agregaremos las filas correspondientes del objeto a una nueva lista. Una vez completada la primera iteración, retornaremos esta lista convertida en un objeto `Picture`.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen9.jpeg}
+			\caption{Metodo verticalRepeat}
+		\end{figure}
+		\vspace{5cm}
+	\subparagraph*{Metodo rotate}
+		\begin{flushleft}
+		El método `rotate` girará el objeto 90 grados en sentido antihorario. Para lograr esto, utilizaremos una lista vacía como referencia y una doble iteración. La primera iteración recorrerá los caracteres de cada cadena correspondiente a una fila del objeto, de los últimos caracteres hacia los primeros. La segunda iteración recorrerá las filas del objeto. \\
+		Utilizaremos una variable `cadenaNueva` que agregará los caracteres correspondientes al nuevo orden de las filas, ajustando la orientación. Al finalizar ambas iteraciones, agregaremos `cadenaNueva` a la lista. Finalmente, retornaremos esta lista convertida en un objeto `Picture`.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=5cm]{imagen10.jpeg}
+			\caption{Metodo rotate}
+		\end{figure}
+\subsection*{Dibujo de las figuras - Draw}
+	\subparagraph{1er Ejercicio}
+		\begin{flushleft}
+			Para el primer ejercicio, primero importamos la biblioteca picture y sus respectivas dependencias para hacer uso de sus funcionalidades. Se nos pide crear un tablero de ajedrez de 2 x 2 con caballos en las diagonales de color opuesto. \\
+			Primero, creamos la fila inicial utilizando la pieza knight y la función join para colocar dos caballos uno al lado del otro. Aplicamos la función negative a uno de los caballos para obtener el color opuesto. Guardamos esta combinación en una variable llamada fila. \\		
+			Luego, creamos la segunda fila aplicando la función negative en la variable fila para invertir los colores y obtener la segunda fila. Esta se almacena en una variable llamada fila2.			
+			A continuación, unimos las filas usando la función up para colocar fila2 encima de fila, formando así el tablero de 2 x 2. \\		
+			Finalmente, utilizamos la función draw para visualizar el tablero creado.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen11.jpeg}
+			\caption{Codigo - Ejercicio 1}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=5cm]{imagen12.jpeg}
+			\caption{Draw - Ejercicio 1}
+		\end{figure} 
+		\vspace*{2cm}
+	\subparagraph*{2do Ejercicio}
+		\begin{flushleft}
+			Para el segundo ejercicio, realizaremos un procedimiento similar al anterior, pero con la diferencia de que la fila inferior debe estar mirando del otro lado. \\	
+			Primero, creamos la fila inicial utilizando la pieza knight y la función join para colocar dos caballos uno al lado del otro. Aplicamos la función negative a uno de los caballos para obtener el color opuesto. Guardamos esta combinación en una variable llamada fila.\\
+			Luego, creamos la segunda fila utilizando la función verticalMirror en la variable fila, lo que resulta en un espejo vertical de esta.	\\		
+			Para unir las filas, usamos la función up para colocar la segunda fila debajo de la primera, formando así el tablero.\\			
+			Finalmente, utilizamos la función draw para visualizar el tablero creado.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen13.jpeg}
+			\caption{Codigo - Ejercicio 2}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=5cm]{imagen14.jpeg}
+			\caption{Draw - Ejercicio 2}
+		\end{figure} 
+	\subparagraph*{3er Ejercicio}
+		\begin{flushleft}
+			En el tercer ejercicio, debemos colocar cuatro reinas en una fila. Para lograr esto, utilizaremos el método horizontalRepeat, que permite repetir un objeto un número específico de veces hacia la derecha. En este caso, el objeto será una reina, y el método repetirá la reina cuatro veces. Luego, usaremos la función draw para visualizar el resultado.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen15.jpeg}
+			\caption{Codigo - Ejercicio 3}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen16.jpeg}
+			\caption{Draw - Ejercicio 3}
+		\end{figure} 
+		\vspace*{11cm}
+	\subparagraph*{4to Ejercicio}
+		\begin{flushleft}
+			En el cuarto ejercicio, debemos mostrar una fila de 8 cuadrados siguiendo el esquema de un tablero de ajedrez. Para lograr esto, primero creamos una variable casillero que representa dos cuadrados, utilizando el método join para colocar un cuadrado al lado del otro, aplicando el método negative a uno de ellos para cambiar su color. \\
+			Luego, usaremos el método horizontalRepeat con el argumento 4 para repetir este par de cuadrados, obteniendo así una fila de 8 casilleros con el patrón de un tablero de ajedrez. Finalmente, utilizamos la función draw para visualizar el resultado.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen17.jpeg}
+			\caption{Codigo - Ejercicio 4}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=2cm]{imagen18.jpeg}
+			\caption{Draw - Ejercicio 4}
+		\end{figure} 
+		\vspace*{11cm}
+	\subparagraph*{5to Ejercicio}
+		\begin{flushleft}
+			En el quinto ejercicio, se nos pide crear una fila de 8 cuadrados con el mismo esquema de un tablero de ajedrez, pero con los colores invertidos. Para lograr esto, reutilizaremos el código del ejercicio anterior y aplicaremos el método negative al resultado final de horizontalRepeat antes de visualizarlo con draw.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=3cm]{imagen19.jpeg}
+			\caption{Codigo - Ejercicio 5}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=2cm]{imagen20.jpeg}
+			\caption{Draw - Ejercicio 5}
+		\end{figure} 
+		\vspace*{13cm}
+	\subparagraph*{6to Ejercicio}
+		\begin{flushleft}
+			En el sexto ejercicio, debemos crear un tablero de ajedrez de 8 x 4 en el cual la fila más baja debe ser la misma que en el ejercicio 5, respetando el patrón del ajedrez.\\
+			Primero, creamos una variable casilleroX2 que representa dos cuadrados alternados en color. Utilizamos los objetos square y el método join, aplicando negative a uno de ellos para cambiar su color. Luego, repetimos este par de cuadrados cuatro veces usando el método horizontalRepeat con el argumento 4, y guardamos el resultado en una variable denominada fila.\\
+			Después, modificamos fila usando el método up para colocar otra fila encima con el color invertido, creando así una fila de 8 cuadrados con el patrón de ajedrez en dos filas alternadas. Para esto, aplicamos negative a la variable fila y la colocamos encima usando up.\\			
+			Finalmente, utilizamos el método verticalRepeat con el argumento 2 para repetir esta estructura dos veces hacia arriba, creando un tablero de 8 x 4, y usamos la función draw para visualizar el resultado.
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=5cm]{imagen21.jpeg}
+			\caption{Codigo - Ejercicio 6}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=5cm]{imagen22.jpeg}
+			\caption{Draw - Ejercicio 6}
+		\end{figure} 
+	\subparagraph*{7mo Ejercicio}
+		\begin{flushleft}
+			Para el último ejercicio, debemos recrear un tablero de ajedrez con las piezas negras en la parte superior.\\	
+			Primero, crearemos la posición de las figuras blancas utilizando diversas variables como cTorre, cCaballo, cAlfil, entre otras, siguiendo el orden respectivo de torre, caballo, alfil, etc. Utilizaremos el método under para colocar cada figura sobre el casillero correspondiente, alternando el color de los casilleros con el método negative.	\\		
+			Por ejemplo, empezaremos con un casillero negro para la torre. Utilizaremos la variable cTorre, en la cual tendremos un casillero negro (square con negative), y aplicaremos el método under con el objeto rook (que representa la torre). Para el caballo, que sigue a la torre, usaremos la variable cCaballo, utilizando un casillero blanco (square) con el método under llamando al objeto knight (caballo), y así sucesivamente. \\			
+			Para los peones, haremos la agrupación de dos. En la variable cPeon, primero colocaremos un peón sobre un casillero blanco (square con under y el objeto pawn). Luego, usaremos el método join para colocar a su lado otro peón sobre un casillero negro (square con negative, under con el objeto pawn).\\
+			Como ya tenemos las figuras correspondientes en sus casillas, empezaremos a construir el tablero.\\	
+			Primero, crearemos la fila de los peones. Utilizaremos la variable cPeon, la cual contendrá los peones alternando los colores de las casillas. Aplicamos el método horizontalRepeat 4 veces para formar una fila completa de 8 peones, y almacenamos el resultado en la variable filaPeones.	\\		
+			Luego, construiremos la fila de las piezas mediante la variable filaPiezas. Usaremos el método join para unir las piezas en el orden correspondiente: torre, caballo, alfil, reina, rey, alfil, caballo y torre.	\\		
+			A continuación, crearemos la parte media del tablero donde no hay figuras. Para esto, almacenamos dos casilleros alternados en una variable casilleroX2, utilizando el objeto square y el método join con el argumento square llamando al método negative. Después, usaremos casilleroX2 con el método horizontalRepeat 4 veces para crear una fila de 8 casilleros, almacenando el resultado en la variable fila.	\\		
+			Luego, en una variable filaX2, pondremos una fila sobre otra, teniendo en cuenta que al llamar al método up, el argumento debe llamar al método negative. Esto crea dos filas alternadas.	\		
+			Para completar la parte media del tablero, repetiremos filaX2 verticalmente 2 veces utilizando el método verticalRepeat, y almacenamos el resultado en la variable tM.	\\		
+			Finalmente, construiremos el tablero completo usando las variables creadas. Utilizaremos el método up para apilar las filas en el orden adecuado y el método negative para invertir los colores donde sea necesario. Almacenamos el resultado en la variable tablero y usamos la función draw para visualizarlo.\\
+		\end{flushleft}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[height=8cm]{imagen23.jpeg}
+			\caption{Codigo - Ejercicio 7}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=12cm]{imagen24.jpeg}
+			\caption{Draw - Ejercicio 7}
+		\end{figure} 
+\end{document}
